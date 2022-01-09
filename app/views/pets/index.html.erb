@@ -1,0 +1,24 @@
+<div class="jumbotron jumbotron-fluid">
+<%= link_to 'List a lost pet', new_pet_path, class: 'flex-row-reverse btn btn-light float-right mx-5' %>
+  <div class="container">
+    <h1 class="display-4">Lost Pets in Tokyo</h1>
+    <p class="lead">Lost a pet? Found a pet? List or find them here.</p>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <%  @pets.each do |pet|%>
+    <div class="col-12 col-md-6 col-lg-4">
+          <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><%= pet.name %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= pet.species.capitalize %></h6>
+              <p class="card-text">📍 <%= pet.address %></p>
+              <p class="card-text"><%= pet.found_days_ago %></p>
+              <%= link_to 'Details', pet_path(pet), class: "card-link" %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

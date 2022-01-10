@@ -15,7 +15,8 @@ puts "Creating 10 pets ... "
     address: Faker::Address.street_address,
     species: %w[dog cat rabbit bird].sample,
     found_on: Faker::Date.between(from: 15.days.ago, to: Date.today),
-    color: Faker::Color.color_name
+    color: Faker::Color.color_name,
+    image: Faker::Placeholdit.image(size: '50x50', format: 'jpeg', background_color: :random)
   )
 end
 

@@ -3,8 +3,8 @@
   <div class="top-margin row">
     <div class="col-12 col-md-12 col-lg-8 mx-auto">
       <div class="pet-details shadow-sm mb-5">
-        <h3>Pet Details</h3>
-        <img src="https://source.unsplash.com/collection/3576904/200x200" alt="pet photo" class="rounded float-right">
+        <h3><%= @pet.name %>'s Details</h3>
+        <img src=<%= @pet.image %> style="width: 200px; height: 200px;" alt="pet photo" class="rounded float-right">
         <ul class="list-unstyled">
           <li><%= @pet.species %></li>
           <li><%= @pet.color %></li>

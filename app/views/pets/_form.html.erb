@@ -2,7 +2,11 @@
   <%= f.input :name %>
   <%= f.input :species %>
   <%= f.input :color %>
-  <%= f.input :found_on%>
+  <%= f.input :found_on %>
   <%= f.input :address %>
-  <%= f.submit class: 'btn btn-success'%>
+  <%# <%= f.input :image %>
+  <%= f.simple_fields_for :image do |af| %>
+        <%= af.input :photo, as: :file, label: :image, required: true, id: :image %>
+      <% end %>
+  <%= f.submit class: 'btn btn-success mb-5'%>
 <% end %>

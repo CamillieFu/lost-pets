@@ -1,4 +1,4 @@
-<h1 class="pet-header shadow-sm"><%= @pet.name %></h1>
+<h1 class="pet-header"><%= @pet.name %></h1>
 <div class="container">
   <div class="top-margin row">
     <div class="col-12 col-md-12 col-lg-8 mx-auto">
@@ -6,18 +6,22 @@
         <h3><%= @pet.name %>'s Details</h3>
         <img src=<%= @pet.image %> style="width: 200px; height: 200px;" alt="pet photo" class="rounded float-right">
         <ul class="list-unstyled">
-          <li><%= @pet.species %></li>
-          <li><%= @pet.color %></li>
-          <li><%= @pet.address %></li>
+          <li><strong>Species:</strong> <%= @pet.species.capitalize %></li>
+          <li><strong>Color:</strong> <%= @pet.color.capitalize %></li>
+          <li><strong>Found at:</strong> <%= @pet.address %></li>
           <% if @pet.found_days_ago == '0 days ago' %>
             <li>This pet was found today</li>
+          <% elsif @pet.found_days_ago == '1 days ago' %>
+            <li>This pet was found yesterday </li>
           <% else %>
             <li>This pet was found <%= @pet.found_days_ago %></li>
           <% end %>
         </ul>
         <%= link_to 'Unlist This Pet', pet_path(@pet), method: :delete, data: { confirm: "Delete?" } , class: "btn btn-warning mb-3" %><br>
         <%= link_to 'Go Back', root_path, class: 'card-link border-right pr-3' %>
-        <%= link_to 'Update Pet', edit_pet_path, class: 'card-link pr-3' %>
+        <%= link_to 'Update Pet', edit_pet_path, class: 'card-link pr-3 border-right' %>
+        <%= link_to 'Contact', edit_pet_path, class: 'card-link pr-3' %>
+        <%# some kind of mailer or contact form %>
       </div>
     </div>
   </div>
